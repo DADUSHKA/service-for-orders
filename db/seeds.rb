@@ -1,7 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require "yaml"
+
+path = File.expand_path(".", "db/menu.yml")
+menu = YAML.load_file(path)
+
+warn "Creating list of ingredients"
+menu["ingredients"].each do |name|
+  Ingredient.create!(name: name)
+end
+
+warn "Creating list of dishes"
+menu["dishes"].each do |kit|
+  dish = Dish.create!(name: kit["name"])
+  dish.ingredients << Ingredient.where(name: kit["ingredients"])
+end

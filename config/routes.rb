@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root "ingredients#index"
+  resources :orders, except: %i[show update]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :ingredients, only: %i[index update]
+
+  namespace :api do
+    resources :dishes, only: [:index]
+  end
 end
