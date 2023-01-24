@@ -1,0 +1,16 @@
+<div id="<%= dom_id order %>">
+  <p>
+    <strong>Title:</strong>
+    <%= order.title %>
+    <table id="formElem">
+  <% order.dishes.distinct.each do |dish| %>
+    <tr>
+      <td>
+        <%= dish.name %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+  </p>
+
+</div>

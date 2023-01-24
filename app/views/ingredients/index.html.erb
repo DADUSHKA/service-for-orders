@@ -1,0 +1,21 @@
+<h1>Ингридиенты</h1>
+ <%= link_to "<button>Список заказов</button>".html_safe, orders_path %>
+ <%= link_to "<button>Создать заказ</button>".html_safe, new_order_path %>
+
+  <table id="formElem">
+  <% @ingredients.each do |ingredient| %>
+    <tr data-controller="ingredients" data-ingredients-update-url="<%= ingredient_path(ingredient) %>">
+      <td>
+        <input
+          data-action="click->ingredients#toggle"
+          type="checkbox"
+          data-ingredients-target="available"
+          <% if ingredient.available %>
+            checked
+          <% end %>
+        >
+        <%= ingredient.name %>
+      </td>
+    </tr>
+  <% end %>
+</table>

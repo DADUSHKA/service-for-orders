@@ -1,0 +1,10 @@
+<h1>Создать заказ</h1>
+
+  <%= render "form", order: @order, dishes: @dishes %>
+
+<br>
+
+<div>
+  <%= link_to "<button>Все заказы</button>".html_safe, orders_path %>
+  <%= link_to "<button>Назад</button>".html_safe, root_path %>
+</div>

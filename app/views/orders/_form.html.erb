@@ -1,0 +1,23 @@
+<%= form_with(model: order) do |form| %>
+  <% if order.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+      <ul>
+        <% order.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div>
+    <%= order.title %>
+    <%#= form.datetime_local_field :title %>
+  </div>
+    <div class="field">
+      <%= form.label :dish_ids, 'Блюда' %>
+      <%= form.collection_check_boxes :dish_ids, dishes, :id, :name %>
+  </div>
+  <div>
+    <%= form.submit "Сделать заказ" %>
+  </div>
+<% end %>
