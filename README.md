@@ -1,24 +1,6 @@
 # README
+Есть блюдо, у блюда есть состав (ингредиенты). На главной можно чек-боксами выбрать исключаемые ингредиенты, набор исключенных ингредиентов определяет заказ (в заказе не должно быть блюд с исключенными ингредиентами). Меню регулярно обновляется. При нажатии отправить создается заказ, после чего происходит редирект обратно на главную.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Так же есть запрос, который возвращает JSON вида [ { name: 'Омлет с брокколи', count: 10 }, { name: 'Овсяный сырник с вишней', count: 9 }, ...] count - количество блюд, которое надо приготовить, исходя из заказов. Массив ответа отсортирован в порядке убывания count. Вычисление количества блюд происходит в момент запроса.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Покрытие кода тестами RSpec является плюсом. Должна быть команда, которая наполняет базу данными из yml файла. Используем последние версии Ruby, Rails и PSQL.
